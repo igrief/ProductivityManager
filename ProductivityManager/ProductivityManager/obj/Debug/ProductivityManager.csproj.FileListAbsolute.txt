@@ -1,0 +1,9 @@
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\bin\Debug\ProductivityManager.exe.config
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\bin\Debug\ProductivityManager.exe
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\bin\Debug\ProductivityManager.pdb
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.csprojAssemblyReference.cache
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.Form1.resources
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.Properties.Resources.resources
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.csproj.GenerateResource.cache
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.exe
+C:\Users\Isaiah\Desktop\Programs\ProductivityManager\ProductivityManager\ProductivityManager\ProductivityManager\obj\Debug\ProductivityManager.pdb
