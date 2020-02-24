@@ -11,12 +11,13 @@ namespace ProductivityManager
         public Manager()
         {
             InitializeComponent();
+            todoTextBox.KeyDown += todoTextBox_OnKeyDown; //attaches event
         }
 
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            todoBox.Items.Remove(todoBox.SelectedItem);
         }
 
         private void timerTimer_Tick(object sender, EventArgs e)
@@ -24,6 +25,7 @@ namespace ProductivityManager
             if (!timerT.TimerTick())
             {
                 timerTimer.Stop();
+                //todo: generate a notification 
             }
             timerValue.Text = timerT.ReadTime();
         }
@@ -74,5 +76,20 @@ namespace ProductivityManager
             stopwatchTimer.Stop();
             stopwatchValue.Text = stopwatchT.ReadTime();
         }
+
+        private void todoButton_Click(object sender, EventArgs e)
+        {
+            todoBox.Items.Add(new Todo(todoTextBox.Text));
+            todoTextBox.Text = "";
+        }
+
+        private void todoTextBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                todoButton_Click(sender, e);
+            }
+        }
+
     }
 }

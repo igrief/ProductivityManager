@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.todoBox = new System.Windows.Forms.CheckedListBox();
             this.tabs = new System.Windows.Forms.TabControl();
             this.todoPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.todoTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.todoButton = new System.Windows.Forms.Button();
             this.habitsPage = new System.Windows.Forms.TabPage();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.remindersPage = new System.Windows.Forms.TabPage();
@@ -62,6 +66,8 @@
             this.stopwatchTimer = new System.Windows.Forms.Timer(this.components);
             this.tabs.SuspendLayout();
             this.todoPage.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.habitsPage.SuspendLayout();
             this.timerPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -72,19 +78,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).BeginInit();
             this.SuspendLayout();
             // 
-            // checkedListBox1
+            // todoBox
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "abc",
-            "def",
-            "gfyc"});
-            this.checkedListBox1.Location = new System.Drawing.Point(49, 28);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(241, 238);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.ThreeDCheckBoxes = true;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.todoBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.todoBox.CheckOnClick = true;
+            this.todoBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.todoBox.FormattingEnabled = true;
+            this.todoBox.Location = new System.Drawing.Point(5, 5);
+            this.todoBox.Margin = new System.Windows.Forms.Padding(5);
+            this.todoBox.Name = "todoBox";
+            this.tableLayoutPanel3.SetRowSpan(this.todoBox, 2);
+            this.todoBox.Size = new System.Drawing.Size(531, 500);
+            this.todoBox.TabIndex = 0;
+            this.todoBox.ThreeDCheckBoxes = true;
+            this.todoBox.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // tabs
             // 
@@ -104,7 +111,7 @@
             // 
             // todoPage
             // 
-            this.todoPage.Controls.Add(this.checkedListBox1);
+            this.todoPage.Controls.Add(this.tableLayoutPanel3);
             this.todoPage.Location = new System.Drawing.Point(4, 33);
             this.todoPage.Name = "todoPage";
             this.todoPage.Padding = new System.Windows.Forms.Padding(3);
@@ -112,6 +119,56 @@
             this.todoPage.TabIndex = 0;
             this.todoPage.Text = "To Do";
             this.todoPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.88843F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.11157F));
+            this.tableLayoutPanel3.Controls.Add(this.todoBox, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.todoTextBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.803922F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.19608F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(968, 510);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // todoTextBox
+            // 
+            this.todoTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.todoTextBox.Location = new System.Drawing.Point(544, 3);
+            this.todoTextBox.Name = "todoTextBox";
+            this.todoTextBox.Size = new System.Drawing.Size(421, 31);
+            this.todoTextBox.TabIndex = 1;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.todoButton, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(544, 52);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(421, 124);
+            this.tableLayoutPanel4.TabIndex = 2;
+            // 
+            // todoButton
+            // 
+            this.todoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.todoButton.Location = new System.Drawing.Point(3, 3);
+            this.todoButton.Name = "todoButton";
+            this.todoButton.Size = new System.Drawing.Size(204, 56);
+            this.todoButton.TabIndex = 0;
+            this.todoButton.Text = "Add Item";
+            this.todoButton.UseVisualStyleBackColor = true;
+            this.todoButton.Click += new System.EventHandler(this.todoButton_Click);
             // 
             // habitsPage
             // 
@@ -446,6 +503,9 @@
             this.Text = "Productivity Manager";
             this.tabs.ResumeLayout(false);
             this.todoPage.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.habitsPage.ResumeLayout(false);
             this.habitsPage.PerformLayout();
             this.timerPage.ResumeLayout(false);
@@ -464,7 +524,7 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox todoBox;
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage todoPage;
         private System.Windows.Forms.TabPage habitsPage;
@@ -495,6 +555,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown secondsInput;
         private System.Windows.Forms.Button timerSetButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox todoTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button todoButton;
     }
 }
 
