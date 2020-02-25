@@ -71,6 +71,7 @@
             this.timerResetButton = new System.Windows.Forms.Button();
             this.timerTimer = new System.Windows.Forms.Timer(this.components);
             this.stopwatchTimer = new System.Windows.Forms.Timer(this.components);
+            this.dayTimer = new System.Windows.Forms.Timer(this.components);
             this.tabs.SuspendLayout();
             this.todoPage.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -594,6 +595,10 @@
             this.stopwatchTimer.Interval = 1000;
             this.stopwatchTimer.Tick += new System.EventHandler(this.stopwatchTimer_Tick);
             // 
+            // dayTimer
+            // 
+            this.dayTimer.Tick += new System.EventHandler(this.dayTimer_Tick);
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -672,6 +677,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Button habitsRemoveButton;
         private System.Windows.Forms.ComboBox habitsComboBox;
+        private System.Windows.Forms.Timer dayTimer;
     }
 }
 
