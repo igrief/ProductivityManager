@@ -25,6 +25,7 @@ namespace ProductivityManager
                 throw new Exception("Time interval invalid");
             }
             dayTimer.Interval = timeInterval;
+            reminderDatePicker.MinDate = DateTime.Now;
         }
 
         //This method unchecks all habits at the beginning of a new day 
@@ -196,6 +197,28 @@ namespace ProductivityManager
         private void dayTimer_Tick(object sender, EventArgs e)
         {
             resetHabits();
+        }
+
+        //This method adds a new reminder to the list when the add button is clicked 
+        private void reminderAddButton_Click(object sender, EventArgs e)
+        {
+            DateTime reminderDate = new DateTime(reminderDatePicker.Value.Year, 
+                reminderDatePicker.Value.Month, reminderDatePicker.Value.Day, 
+                reminderTimePicker.Value.Hour, reminderTimePicker.Value.Minute,
+                reminderTimePicker.Value.Second);
+            Reminder r = new Reminder(reminderTextBox.Text, reminderDate);
+            reminderCheckList.Items.Add(r);
+        }
+
+        //This method removes all selected reminders when the remove button is clicked 
+        private void reminderRemoveButton_Click(object sender, EventArgs e)
+        {
+            while(reminderCheckList.CheckedItems.Count > 0)
+            {
+                //since the items are removed from the checked items list
+                //we only need to remove the first item and let the list be continually updated
+                reminderCheckList.Items.Remove(reminderCheckList.CheckedItems[0]);
+            }
         }
     }
 }
