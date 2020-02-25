@@ -7,13 +7,14 @@ namespace ProductivityManager
     {
         Timer timerT = new Timer();
         Stopwatch stopwatchT = new Stopwatch();
-        
+
         public Manager()
         {
             InitializeComponent();
             todoTextBox.KeyDown += todoTextBox_OnKeyDown; //attaches event
+            habitsTextBox.KeyDown += habitsTextBox_OnKeyDown;
+            habitsBox.ItemCheck += habitsBox_ItemCheck;
         }
-
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -91,5 +92,56 @@ namespace ProductivityManager
             }
         }
 
+        private void habitsTextBox_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                habitsAddButton_Click(sender, e);
+            }
+        }
+
+        private void habitsRemoveButton_Click(object sender, EventArgs e)
+        {
+            habitsBox.Items.Remove(habitsComboBox.SelectedItem);
+            habitsComboBox.Items.Remove(habitsComboBox.SelectedItem);
+            habitsComboBox.Text = "";
+        }
+
+        private void habitsAddButton_Click(object sender, EventArgs e)
+        {
+            Habit h = new Habit(habitsTextBox.Text);
+            habitsBox.Items.Add(h);
+            habitsComboBox.Items.Add(h);
+            habitsTextBox.Text = "";
+        }
+
+        private void habitsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(habitsBox.SelectedItem == null)
+            {
+                return;
+            }
+            //if the habit was not already done, set it to be done
+            if (!((Habit)habitsBox.SelectedItem).doneToday)
+            {
+                ((Habit)habitsBox.SelectedItem).doneToday = true;
+            }
+        }
+
+        private void habitsBox_ItemCheck(object sender, EventArgs e)
+        {
+            //when the box is checked, disable it 
+            if(((ItemCheckEventArgs)e).NewValue == CheckState.Checked)
+            {
+                ((ItemCheckEventArgs)e).NewValue = CheckState.Indeterminate; 
+                //habitsBox.SetItemCheckState(((ItemCheckEventArgs)e).Index, CheckState.Indeterminate);
+            }
+            //only allow box to be reenabled when trying to disable it - like a toggle
+            if(((ItemCheckEventArgs)e).CurrentValue == CheckState.Indeterminate
+                && ((ItemCheckEventArgs)e).NewValue != CheckState.Indeterminate)
+            {
+                ((ItemCheckEventArgs)e).NewValue = CheckState.Indeterminate;
+            }
+        }
     }
 }

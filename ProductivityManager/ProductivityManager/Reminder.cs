@@ -8,5 +8,18 @@ namespace ProductivityManager
 {
     class Reminder
     {
+        private String message = "";
+        private DateTime remindDate;
+        public Reminder(String message, DateTime remindDate)
+        {
+            this.message = message;
+            this.remindDate = remindDate;
+        }
+        public override String ToString()
+        {
+            return message;
+        }
+        
+
     }
 }

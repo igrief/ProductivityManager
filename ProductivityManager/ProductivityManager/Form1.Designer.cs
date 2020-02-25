@@ -37,7 +37,14 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.todoButton = new System.Windows.Forms.Button();
             this.habitsPage = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.habitsBox = new System.Windows.Forms.CheckedListBox();
+            this.habitsTextBox = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.habitsAddButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.habitsRemoveButton = new System.Windows.Forms.Button();
+            this.habitsComboBox = new System.Windows.Forms.ComboBox();
             this.remindersPage = new System.Windows.Forms.TabPage();
             this.blockerPage = new System.Windows.Forms.TabPage();
             this.schedulePage = new System.Windows.Forms.TabPage();
@@ -69,6 +76,9 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.habitsPage.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.timerPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -172,7 +182,7 @@
             // 
             // habitsPage
             // 
-            this.habitsPage.Controls.Add(this.checkBox1);
+            this.habitsPage.Controls.Add(this.tableLayoutPanel5);
             this.habitsPage.Location = new System.Drawing.Point(4, 33);
             this.habitsPage.Name = "habitsPage";
             this.habitsPage.Padding = new System.Windows.Forms.Padding(3);
@@ -181,15 +191,108 @@
             this.habitsPage.Text = "Habits";
             this.habitsPage.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // tableLayoutPanel5
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(19, 18);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(118, 28);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.habitsBox, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.habitsTextBox, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.habitsComboBox, 1, 2);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(968, 510);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // habitsBox
+            // 
+            this.habitsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.habitsBox.CheckOnClick = true;
+            this.habitsBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.habitsBox.FormattingEnabled = true;
+            this.habitsBox.Location = new System.Drawing.Point(3, 3);
+            this.habitsBox.Name = "habitsBox";
+            this.tableLayoutPanel5.SetRowSpan(this.habitsBox, 4);
+            this.habitsBox.Size = new System.Drawing.Size(478, 504);
+            this.habitsBox.TabIndex = 0;
+            this.habitsBox.SelectedIndexChanged += new System.EventHandler(this.habitsBox_SelectedIndexChanged);
+            // 
+            // habitsTextBox
+            // 
+            this.habitsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.habitsTextBox.Location = new System.Drawing.Point(487, 3);
+            this.habitsTextBox.Name = "habitsTextBox";
+            this.habitsTextBox.Size = new System.Drawing.Size(478, 31);
+            this.habitsTextBox.TabIndex = 1;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.habitsAddButton, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(487, 88);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(478, 163);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // habitsAddButton
+            // 
+            this.habitsAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.habitsAddButton.Location = new System.Drawing.Point(3, 3);
+            this.habitsAddButton.Name = "habitsAddButton";
+            this.habitsAddButton.Size = new System.Drawing.Size(233, 75);
+            this.habitsAddButton.TabIndex = 0;
+            this.habitsAddButton.Text = "Add Habit";
+            this.habitsAddButton.UseVisualStyleBackColor = true;
+            this.habitsAddButton.Click += new System.EventHandler(this.habitsAddButton_Click);
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.habitsRemoveButton, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(487, 342);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(478, 165);
+            this.tableLayoutPanel7.TabIndex = 3;
+            // 
+            // habitsRemoveButton
+            // 
+            this.habitsRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.habitsRemoveButton.Location = new System.Drawing.Point(3, 3);
+            this.habitsRemoveButton.Name = "habitsRemoveButton";
+            this.habitsRemoveButton.Size = new System.Drawing.Size(233, 76);
+            this.habitsRemoveButton.TabIndex = 0;
+            this.habitsRemoveButton.Text = "Remove Habit";
+            this.habitsRemoveButton.UseVisualStyleBackColor = true;
+            this.habitsRemoveButton.Click += new System.EventHandler(this.habitsRemoveButton_Click);
+            // 
+            // habitsComboBox
+            // 
+            this.habitsComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.habitsComboBox.FormattingEnabled = true;
+            this.habitsComboBox.Location = new System.Drawing.Point(487, 257);
+            this.habitsComboBox.Name = "habitsComboBox";
+            this.habitsComboBox.Size = new System.Drawing.Size(478, 32);
+            this.habitsComboBox.TabIndex = 4;
             // 
             // remindersPage
             // 
@@ -507,7 +610,10 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.habitsPage.ResumeLayout(false);
-            this.habitsPage.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.timerPage.ResumeLayout(false);
             this.timerPage.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -528,7 +634,6 @@
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage todoPage;
         private System.Windows.Forms.TabPage habitsPage;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage remindersPage;
         private System.Windows.Forms.TabPage blockerPage;
         private System.Windows.Forms.TabPage schedulePage;
@@ -559,6 +664,14 @@
         private System.Windows.Forms.TextBox todoTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button todoButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.CheckedListBox habitsBox;
+        private System.Windows.Forms.TextBox habitsTextBox;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Button habitsAddButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button habitsRemoveButton;
+        private System.Windows.Forms.ComboBox habitsComboBox;
     }
 }
 
