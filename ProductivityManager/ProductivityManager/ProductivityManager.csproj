@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blocker.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Todo.cs" />
     <Compile Include="Habit.cs" />

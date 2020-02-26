@@ -177,23 +177,23 @@ namespace ProductivityManager
         }
 
         //This method handles habit check box enabling and disabling
-        private void habitsBox_ItemCheck(object sender, EventArgs e)
+        private void habitsBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //when the box is checked, disable it 
-            if(((ItemCheckEventArgs)e).NewValue == CheckState.Checked)
+            if(e.NewValue == CheckState.Checked)
             {
-                ((ItemCheckEventArgs)e).NewValue = CheckState.Indeterminate; 
+                e.NewValue = CheckState.Indeterminate; 
                 //habitsBox.SetItemCheckState(((ItemCheckEventArgs)e).Index, CheckState.Indeterminate);
             }
             //only allow box to be reenabled when trying to disable it - like a toggle
-            else if(((ItemCheckEventArgs)e).CurrentValue == CheckState.Indeterminate)
+            else if(e.CurrentValue == CheckState.Indeterminate)
             {
                 //if new value is not indeterminate and the habit is done, don't change anything
-                if (((ItemCheckEventArgs)e).NewValue != CheckState.Indeterminate && ((Habit)habitsBox.Items[((ItemCheckEventArgs)e).Index]).doneToday)
-                    ((ItemCheckEventArgs)e).NewValue = CheckState.Indeterminate;
+                if (e.NewValue != CheckState.Indeterminate && ((Habit)habitsBox.Items[e.Index]).doneToday)
+                    e.NewValue = CheckState.Indeterminate;
                 //else the habit is not done, but it had to have been, so it must be that we need to uncheck
                 else
-                    ((ItemCheckEventArgs)e).NewValue = CheckState.Unchecked;
+                    e.NewValue = CheckState.Unchecked;
             } 
         }
 
@@ -333,6 +333,42 @@ namespace ProductivityManager
             }
         }
 
+        private void eventAddButton_Click(object sender, EventArgs e)
+        {
+            Event newEvent = new Event();
+            eventListComboBox.Items.Add(newEvent);
+            eventTextBox.Text = "";
+            Todo: Handle recurring events 
+            Todo: Add to schedule storage
+            Todo: Update all the text boxes 
+        }
 
+        private void eventRemoveButton_Click(object sender, EventArgs e)
+        {
+            Todo: remove from schedule storage
+            Todo: Update all the text boxes 
+            eventListComboBox.Items.Remove(eventListComboBox.SelectedItem);
+        }
+
+        private void eventMonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            Todo: Update all the text boxes 
+        }
+        /*
+         * private void habitsRemoveButton_Click(object sender, EventArgs e)
+        {
+            habitsBox.Items.Remove(habitsComboBox.SelectedItem);
+            habitsComboBox.Items.Remove(habitsComboBox.SelectedItem);
+            habitsComboBox.Text = "";
+        }
+
+        //This method adds a habit to the list when the add button is clicked
+        private void habitsAddButton_Click(object sender, EventArgs e)
+        {
+            Habit h = new Habit(habitsTextBox.Text);
+            habitsBox.Items.Add(h);
+            habitsComboBox.Items.Add(h);
+            habitsTextBox.Text = "";
+        }
     }
 }

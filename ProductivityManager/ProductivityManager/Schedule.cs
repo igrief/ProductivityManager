@@ -9,4 +9,9 @@ namespace ProductivityManager
     class Schedule
     {
     }
+
+    class Event
+    {
+
+    }
 }
