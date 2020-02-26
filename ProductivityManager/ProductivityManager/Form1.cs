@@ -30,12 +30,6 @@ namespace ProductivityManager
             reminderNotifyIcon.Visible = true;
             reminderNotifyIcon.Icon = SystemIcons.Application; //can replace with an appropriate .ico file
             reminderNotifyIcon.BalloonTipIcon = ToolTipIcon.None;
-            notifyIcon1.Visible = true;
-            notifyIcon1.Icon = SystemIcons.Application;
-            notifyIcon1.BalloonTipIcon = ToolTipIcon.None;
-            notifyIcon2.Visible = true;
-            notifyIcon2.Icon = SystemIcons.Application;
-            notifyIcon2.BalloonTipIcon = ToolTipIcon.None;
         }
 
         //This method unchecks all habits at the beginning of a new day 
@@ -234,11 +228,10 @@ namespace ProductivityManager
 
         //This method converts a datetime to a datetimetimer interval representing 
         //the amount of time between now and the datetime
-        //This method returns the absolute difference between the two datetimes 
         private Int32 getTimerTicksUntilDate(DateTime futureEvent)
         {
             //There are 10000 ticks in a millisecond
-            return Math.Abs((Int32)DateTime.Now.Subtract(futureEvent).Ticks/10000);
+            return (Int32)futureEvent.Subtract(DateTime.Now).Ticks/10000;
         }
 
         //This method removes all selected reminders when the remove button is clicked 
@@ -285,7 +278,7 @@ namespace ProductivityManager
             Reminder returnReminder = (Reminder)reminderCheckList.Items[0];
             foreach(Reminder r in reminderCheckList.Items)
             {
-                if (r.remindDate.Ticks < returnReminder.remindDate.Ticks)
+                if (r.remindDate.Ticks <= returnReminder.remindDate.Ticks)
                     returnReminder = r;
             }
             return returnReminder;
@@ -325,6 +318,11 @@ namespace ProductivityManager
         //This method will show the reminder message, delete the reminder, and update the timer
         private void showReminder()
         {
+            //if there are no reminders, return
+            if(reminderCheckList.Items.Count <= 0)
+            {
+                return;
+            }
             reminderNotifyIcon.ShowBalloonTip(30000);
             //removeReminder stops the timer when there are no more reminders, so we don't have to update it 
             removeReminder(findEarliestReminder());
