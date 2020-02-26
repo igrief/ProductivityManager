@@ -3,6 +3,7 @@
  */
 
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProductivityManager
@@ -26,6 +27,9 @@ namespace ProductivityManager
             }
             dayTimer.Interval = timeInterval;
             reminderDatePicker.MinDate = DateTime.Now;
+            reminderNotifyIcon.Visible = true;
+            reminderNotifyIcon.Icon = SystemIcons.Application; //can replace with an appropriate .ico file
+            reminderNotifyIcon.BalloonTipIcon = ToolTipIcon.None;
         }
 
         //This method unchecks all habits at the beginning of a new day 
@@ -208,6 +212,27 @@ namespace ProductivityManager
                 reminderTimePicker.Value.Second);
             Reminder r = new Reminder(reminderTextBox.Text, reminderDate);
             reminderCheckList.Items.Add(r);
+
+            //Set and start the timer if it is the first reminder 
+            if (reminderCheckList.Items.Count <= 1)
+            {
+                remindTimer.Interval = getTimerTicksUntilDate(reminderDate);
+                remindTimer.Start();
+            }
+            //Else check if it is more recent and update timer accordingly
+            else if(isEarliestReminder(r))
+            {
+                remindTimer.Interval = getTimerTicksUntilDate(reminderDate);
+            }
+        }
+
+        //This method converts a datetime to a datetimetimer interval representing 
+        //the amount of time between now and the datetime
+        //This method returns the absolute difference between the two datetimes 
+        private Int32 getTimerTicksUntilDate(DateTime futureEvent)
+        {
+            //There are 10000 ticks in a millisecond
+            return Math.Abs((Int32)DateTime.Now.Subtract(futureEvent).Ticks/10000);
         }
 
         //This method removes all selected reminders when the remove button is clicked 
@@ -220,5 +245,68 @@ namespace ProductivityManager
                 reminderCheckList.Items.Remove(reminderCheckList.CheckedItems[0]);
             }
         }
+        
+        //This method removes a reminder and updates the timer if necessary
+        private void removeReminder(Reminder r)
+        {
+            //Check if this is the most recent reminder, then update the timer 
+            bool update = false;
+            if(isEarliestReminder(r))
+            {
+                update = true;
+            }
+
+            reminderCheckList.Items.Remove(r);
+            //If no reminders remain, stop the timer
+            if (reminderCheckList.Items.Count <= 0)
+            {
+                remindTimer.Stop();
+            }
+            else if(update)
+            {
+                remindTimer.Interval = getTimerTicksUntilDate(findEarliestReminder().remindDate);
+            }
+        }
+
+        //This method returns the reminder with the earliest remind date in the reminder list,
+        //returns null if list is empty 
+        private Reminder findEarliestReminder()
+        {
+            if(reminderCheckList.Items.Count <= 0)
+            {
+                return null;
+            }
+            Reminder returnReminder = (Reminder)reminderCheckList.Items[0];
+            foreach(Reminder r in reminderCheckList.Items)
+            {
+                if (r.remindDate.Ticks < returnReminder.remindDate.Ticks)
+                    returnReminder = r;
+            }
+            return returnReminder;
+        }
+
+        //This method returns true if the reminder parameter is the earliest reminder
+        private bool isEarliestReminder(Reminder inRemind)
+        {
+            return inRemind.Equals(findEarliestReminder());
+        }
+        
+        //This method updates the reminder timer and sets the notify icon component properties
+        private void updateReminderTimer(Reminder r)
+        {
+            remindTimer.Interval = getTimerTicksUntilDate(r.remindDate);
+            reminderNotifyIcon.BalloonTipTitle = "Reminder!";
+            reminderNotifyIcon.BalloonTipText = r.message;
+        }
+
+        //This method will show the reminder message, delete the reminder, and update the timer
+        private void remindTimer_Tick(object sender, EventArgs e)
+        {
+            reminderNotifyIcon.ShowBalloonTip(30000);
+            removeReminder(findEarliestReminder());
+            updateReminderTimer(findEarliestReminder());
+        }
+
+
     }
 }

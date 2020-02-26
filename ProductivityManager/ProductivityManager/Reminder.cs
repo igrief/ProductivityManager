@@ -8,8 +8,8 @@ namespace ProductivityManager
 {
     class Reminder
     {
-        private String message = "";
-        private DateTime remindDate;
+        public String message { get; set; }
+        public DateTime remindDate { get; set; }
         public Reminder(String message, DateTime remindDate)
         {
             this.message = message;
@@ -17,7 +17,7 @@ namespace ProductivityManager
         }
         public override String ToString()
         {
-            return message;
+            return message + " " + remindDate.ToString();
         }
         
 

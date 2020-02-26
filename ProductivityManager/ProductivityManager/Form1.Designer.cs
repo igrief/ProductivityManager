@@ -46,6 +46,16 @@
             this.habitsRemoveButton = new System.Windows.Forms.Button();
             this.habitsComboBox = new System.Windows.Forms.ComboBox();
             this.remindersPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.reminderTextBox = new System.Windows.Forms.TextBox();
+            this.reminderAddButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.reminderDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.reminderTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.reminderRemoveButton = new System.Windows.Forms.Button();
+            this.reminderCheckList = new System.Windows.Forms.CheckedListBox();
             this.blockerPage = new System.Windows.Forms.TabPage();
             this.schedulePage = new System.Windows.Forms.TabPage();
             this.timerPage = new System.Windows.Forms.TabPage();
@@ -72,17 +82,8 @@
             this.timerTimer = new System.Windows.Forms.Timer(this.components);
             this.stopwatchTimer = new System.Windows.Forms.Timer(this.components);
             this.dayTimer = new System.Windows.Forms.Timer(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.reminderTextBox = new System.Windows.Forms.TextBox();
-            this.reminderAddButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.reminderRemoveButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.reminderDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.reminderTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.reminderCheckList = new System.Windows.Forms.CheckedListBox();
+            this.reminderNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.remindTimer = new System.Windows.Forms.Timer(this.components);
             this.tabs.SuspendLayout();
             this.todoPage.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -92,6 +93,10 @@
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.remindersPage.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.timerPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -99,10 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hoursInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).BeginInit();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // todoBox
@@ -321,6 +322,133 @@
             this.remindersPage.TabIndex = 2;
             this.remindersPage.Text = "Reminders";
             this.remindersPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.reminderCheckList, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 2;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.92157F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.07843F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(968, 510);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.45607F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.54393F));
+            this.tableLayoutPanel9.Controls.Add(this.reminderTextBox, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.reminderAddButton, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 0, 1);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(487, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 2;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(478, 167);
+            this.tableLayoutPanel9.TabIndex = 0;
+            // 
+            // reminderTextBox
+            // 
+            this.tableLayoutPanel9.SetColumnSpan(this.reminderTextBox, 2);
+            this.reminderTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.reminderTextBox.Location = new System.Drawing.Point(3, 49);
+            this.reminderTextBox.Name = "reminderTextBox";
+            this.reminderTextBox.Size = new System.Drawing.Size(472, 31);
+            this.reminderTextBox.TabIndex = 0;
+            // 
+            // reminderAddButton
+            // 
+            this.reminderAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reminderAddButton.Location = new System.Drawing.Point(335, 86);
+            this.reminderAddButton.Name = "reminderAddButton";
+            this.reminderAddButton.Size = new System.Drawing.Size(140, 78);
+            this.reminderAddButton.TabIndex = 2;
+            this.reminderAddButton.Text = "Add Reminder";
+            this.reminderAddButton.UseVisualStyleBackColor = true;
+            this.reminderAddButton.Click += new System.EventHandler(this.reminderAddButton_Click);
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.reminderDatePicker, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.reminderTimePicker, 0, 1);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 86);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 2;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(326, 78);
+            this.tableLayoutPanel11.TabIndex = 3;
+            // 
+            // reminderDatePicker
+            // 
+            this.tableLayoutPanel11.SetColumnSpan(this.reminderDatePicker, 2);
+            this.reminderDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reminderDatePicker.Location = new System.Drawing.Point(3, 3);
+            this.reminderDatePicker.Name = "reminderDatePicker";
+            this.reminderDatePicker.Size = new System.Drawing.Size(320, 31);
+            this.reminderDatePicker.TabIndex = 0;
+            // 
+            // reminderTimePicker
+            // 
+            this.tableLayoutPanel11.SetColumnSpan(this.reminderTimePicker, 2);
+            this.reminderTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reminderTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.reminderTimePicker.Location = new System.Drawing.Point(3, 42);
+            this.reminderTimePicker.Name = "reminderTimePicker";
+            this.reminderTimePicker.ShowUpDown = true;
+            this.reminderTimePicker.Size = new System.Drawing.Size(320, 31);
+            this.reminderTimePicker.TabIndex = 1;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Controls.Add(this.reminderRemoveButton, 1, 1);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(487, 176);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 2;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.77465F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.22535F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(478, 331);
+            this.tableLayoutPanel10.TabIndex = 1;
+            // 
+            // reminderRemoveButton
+            // 
+            this.reminderRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reminderRemoveButton.Location = new System.Drawing.Point(242, 253);
+            this.reminderRemoveButton.Name = "reminderRemoveButton";
+            this.reminderRemoveButton.Size = new System.Drawing.Size(233, 75);
+            this.reminderRemoveButton.TabIndex = 0;
+            this.reminderRemoveButton.Text = "Remove Reminders";
+            this.reminderRemoveButton.UseVisualStyleBackColor = true;
+            this.reminderRemoveButton.Click += new System.EventHandler(this.reminderRemoveButton_Click);
+            // 
+            // reminderCheckList
+            // 
+            this.reminderCheckList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reminderCheckList.FormattingEnabled = true;
+            this.reminderCheckList.Location = new System.Drawing.Point(3, 3);
+            this.reminderCheckList.Name = "reminderCheckList";
+            this.tableLayoutPanel8.SetRowSpan(this.reminderCheckList, 2);
+            this.reminderCheckList.Size = new System.Drawing.Size(478, 504);
+            this.reminderCheckList.TabIndex = 2;
             // 
             // blockerPage
             // 
@@ -616,137 +744,16 @@
             // 
             this.dayTimer.Tick += new System.EventHandler(this.dayTimer_Tick);
             // 
-            // notifyIcon1
+            // reminderNotifyIcon
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.reminderNotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.reminderNotifyIcon.BalloonTipText = "TestBalloonTipText";
+            this.reminderNotifyIcon.BalloonTipTitle = "TestBalloonTipTitle";
+            this.reminderNotifyIcon.Text = "Hello! This is a test message.";
             // 
-            // tableLayoutPanel8
+            // remindTimer
             // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.reminderCheckList, 0, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 2;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.92157F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.07843F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(968, 510);
-            this.tableLayoutPanel8.TabIndex = 0;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.45607F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.54393F));
-            this.tableLayoutPanel9.Controls.Add(this.reminderTextBox, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.reminderAddButton, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel11, 0, 1);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(487, 3);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 2;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(478, 167);
-            this.tableLayoutPanel9.TabIndex = 0;
-            // 
-            // reminderTextBox
-            // 
-            this.tableLayoutPanel9.SetColumnSpan(this.reminderTextBox, 2);
-            this.reminderTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.reminderTextBox.Location = new System.Drawing.Point(3, 49);
-            this.reminderTextBox.Name = "reminderTextBox";
-            this.reminderTextBox.Size = new System.Drawing.Size(472, 31);
-            this.reminderTextBox.TabIndex = 0;
-            // 
-            // reminderAddButton
-            // 
-            this.reminderAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderAddButton.Location = new System.Drawing.Point(335, 86);
-            this.reminderAddButton.Name = "reminderAddButton";
-            this.reminderAddButton.Size = new System.Drawing.Size(140, 78);
-            this.reminderAddButton.TabIndex = 2;
-            this.reminderAddButton.Text = "Add Reminder";
-            this.reminderAddButton.UseVisualStyleBackColor = true;
-            this.reminderAddButton.Click += new System.EventHandler(this.reminderAddButton_Click);
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 2;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Controls.Add(this.reminderRemoveButton, 1, 1);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(487, 176);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.77465F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.22535F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(478, 331);
-            this.tableLayoutPanel10.TabIndex = 1;
-            // 
-            // reminderRemoveButton
-            // 
-            this.reminderRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderRemoveButton.Location = new System.Drawing.Point(242, 253);
-            this.reminderRemoveButton.Name = "reminderRemoveButton";
-            this.reminderRemoveButton.Size = new System.Drawing.Size(233, 75);
-            this.reminderRemoveButton.TabIndex = 0;
-            this.reminderRemoveButton.Text = "Remove Reminders";
-            this.reminderRemoveButton.UseVisualStyleBackColor = true;
-            this.reminderRemoveButton.Click += new System.EventHandler(this.reminderRemoveButton_Click);
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.reminderDatePicker, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.reminderTimePicker, 0, 1);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 86);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 2;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(326, 78);
-            this.tableLayoutPanel11.TabIndex = 3;
-            // 
-            // reminderDatePicker
-            // 
-            this.tableLayoutPanel11.SetColumnSpan(this.reminderDatePicker, 2);
-            this.reminderDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderDatePicker.Location = new System.Drawing.Point(3, 3);
-            this.reminderDatePicker.Name = "reminderDatePicker";
-            this.reminderDatePicker.Size = new System.Drawing.Size(320, 31);
-            this.reminderDatePicker.TabIndex = 0;
-            // 
-            // reminderTimePicker
-            // 
-            this.tableLayoutPanel11.SetColumnSpan(this.reminderTimePicker, 2);
-            this.reminderTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.reminderTimePicker.Location = new System.Drawing.Point(3, 42);
-            this.reminderTimePicker.Name = "reminderTimePicker";
-            this.reminderTimePicker.ShowUpDown = true;
-            this.reminderTimePicker.Size = new System.Drawing.Size(320, 31);
-            this.reminderTimePicker.TabIndex = 1;
-            // 
-            // reminderCheckList
-            // 
-            this.reminderCheckList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderCheckList.FormattingEnabled = true;
-            this.reminderCheckList.Location = new System.Drawing.Point(3, 3);
-            this.reminderCheckList.Name = "reminderCheckList";
-            this.tableLayoutPanel8.SetRowSpan(this.reminderCheckList, 2);
-            this.reminderCheckList.Size = new System.Drawing.Size(478, 504);
-            this.reminderCheckList.TabIndex = 2;
+            this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
             // 
             // Manager
             // 
@@ -769,6 +776,11 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.remindersPage.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
             this.timerPage.ResumeLayout(false);
             this.timerPage.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -779,11 +791,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hoursInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minutesInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondsInput)).EndInit();
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -834,7 +841,6 @@
         private System.Windows.Forms.ComboBox habitsComboBox;
         private System.Windows.Forms.Timer dayTimer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TextBox reminderTextBox;
         private System.Windows.Forms.Button reminderAddButton;
@@ -844,6 +850,8 @@
         private System.Windows.Forms.DateTimePicker reminderDatePicker;
         private System.Windows.Forms.DateTimePicker reminderTimePicker;
         private System.Windows.Forms.CheckedListBox reminderCheckList;
+        private System.Windows.Forms.NotifyIcon reminderNotifyIcon;
+        private System.Windows.Forms.Timer remindTimer;
     }
 }
 
