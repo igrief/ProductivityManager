@@ -30,6 +30,12 @@ namespace ProductivityManager
             reminderNotifyIcon.Visible = true;
             reminderNotifyIcon.Icon = SystemIcons.Application; //can replace with an appropriate .ico file
             reminderNotifyIcon.BalloonTipIcon = ToolTipIcon.None;
+            notifyIcon1.Visible = true;
+            notifyIcon1.Icon = SystemIcons.Application;
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.None;
+            notifyIcon2.Visible = true;
+            notifyIcon2.Icon = SystemIcons.Application;
+            notifyIcon2.BalloonTipIcon = ToolTipIcon.None;
         }
 
         //This method unchecks all habits at the beginning of a new day 
@@ -216,13 +222,13 @@ namespace ProductivityManager
             //Set and start the timer if it is the first reminder 
             if (reminderCheckList.Items.Count <= 1)
             {
-                remindTimer.Interval = getTimerTicksUntilDate(reminderDate);
+                updateReminderTimer(r);
                 remindTimer.Start();
             }
             //Else check if it is more recent and update timer accordingly
             else if(isEarliestReminder(r))
             {
-                remindTimer.Interval = getTimerTicksUntilDate(reminderDate);
+                updateReminderTimer(r);
             }
         }
 
@@ -264,7 +270,7 @@ namespace ProductivityManager
             }
             else if(update)
             {
-                remindTimer.Interval = getTimerTicksUntilDate(findEarliestReminder().remindDate);
+                updateReminderTimer(findEarliestReminder());
             }
         }
 
@@ -292,19 +298,41 @@ namespace ProductivityManager
         }
         
         //This method updates the reminder timer and sets the notify icon component properties
+        //If the next reminder is at the same time, it will show that reminder as well
         private void updateReminderTimer(Reminder r)
         {
-            remindTimer.Interval = getTimerTicksUntilDate(r.remindDate);
             reminderNotifyIcon.BalloonTipTitle = "Reminder!";
             reminderNotifyIcon.BalloonTipText = r.message;
+            Int32 tempInterval = getTimerTicksUntilDate(r.remindDate);
+            //0 is an invalid interval, so just show the reminder immediately
+            if (tempInterval <= 0)
+            {
+                showReminder();
+            }
+            //Else update the timer interval
+            else 
+            {
+                remindTimer.Interval = tempInterval;
+            }
+        }
+
+        //This method will show the reminder when it is time 
+        private void remindTimer_Tick(object sender, EventArgs e)
+        {
+            showReminder();
         }
 
         //This method will show the reminder message, delete the reminder, and update the timer
-        private void remindTimer_Tick(object sender, EventArgs e)
+        private void showReminder()
         {
             reminderNotifyIcon.ShowBalloonTip(30000);
+            //removeReminder stops the timer when there are no more reminders, so we don't have to update it 
             removeReminder(findEarliestReminder());
-            updateReminderTimer(findEarliestReminder());
+            Reminder r = findEarliestReminder();
+            if (r != null)
+            {
+                updateReminderTimer(findEarliestReminder());
+            }
         }
 
 

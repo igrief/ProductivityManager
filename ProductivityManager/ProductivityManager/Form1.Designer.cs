@@ -55,6 +55,7 @@
             this.reminderTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.reminderRemoveButton = new System.Windows.Forms.Button();
+            this.debugButton = new System.Windows.Forms.Button();
             this.reminderCheckList = new System.Windows.Forms.CheckedListBox();
             this.blockerPage = new System.Windows.Forms.TabPage();
             this.schedulePage = new System.Windows.Forms.TabPage();
@@ -84,6 +85,8 @@
             this.dayTimer = new System.Windows.Forms.Timer(this.components);
             this.reminderNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabs.SuspendLayout();
             this.todoPage.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -420,6 +423,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.reminderRemoveButton, 1, 1);
+            this.tableLayoutPanel10.Controls.Add(this.debugButton, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(487, 176);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -439,6 +443,16 @@
             this.reminderRemoveButton.Text = "Remove Reminders";
             this.reminderRemoveButton.UseVisualStyleBackColor = true;
             this.reminderRemoveButton.Click += new System.EventHandler(this.reminderRemoveButton_Click);
+            // 
+            // debugButton
+            // 
+            this.debugButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.debugButton.Location = new System.Drawing.Point(3, 3);
+            this.debugButton.Name = "debugButton";
+            this.debugButton.Size = new System.Drawing.Size(233, 244);
+            this.debugButton.TabIndex = 1;
+            this.debugButton.Text = "button1";
+            this.debugButton.UseVisualStyleBackColor = true;
             // 
             // reminderCheckList
             // 
@@ -755,6 +769,20 @@
             // 
             this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipText = "notifyIcon1 BalloonTipText";
+            this.notifyIcon1.BalloonTipTitle = "notifyIcon1 BalloonTipTitle";
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // notifyIcon2
+            // 
+            this.notifyIcon2.BalloonTipText = "notifyIcon2 BalloonTipText";
+            this.notifyIcon2.BalloonTipTitle = "notifyIcon2 BalloonTipTitle";
+            this.notifyIcon2.Text = "notifyIcon2";
+            this.notifyIcon2.Visible = true;
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -852,6 +880,9 @@
         private System.Windows.Forms.CheckedListBox reminderCheckList;
         private System.Windows.Forms.NotifyIcon reminderNotifyIcon;
         private System.Windows.Forms.Timer remindTimer;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notifyIcon2;
+        private System.Windows.Forms.Button debugButton;
     }
 }
 
