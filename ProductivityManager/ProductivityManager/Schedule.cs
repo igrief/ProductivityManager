@@ -22,7 +22,7 @@ namespace ProductivityManager
     {
         public string description { get; set; }
         public DateTime eventDate { get; set; }
-        private Recur recurrence = Recur.None;
+        public Recur recurrence { get; set; } = Recur.None;
         
         public Event(string description, DateTime eventDate, Recur recurrence)
         {

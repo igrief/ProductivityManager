@@ -19,6 +19,7 @@ namespace ProductivityManager
             todoTextBox.KeyDown += todoTextBox_OnKeyDown; //attaches event
             habitsTextBox.KeyDown += habitsTextBox_OnKeyDown;
             habitsBox.ItemCheck += habitsBox_ItemCheck;
+            eventMonthCalendar.DateSelected += eventDateSelected;
             //calculate the time until first day is over 
             Int32 timeInterval = 86400000 - ((DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second) * 1000);
             if(timeInterval < 0)
@@ -169,6 +170,11 @@ namespace ProductivityManager
         /// <param name="e"></param>
         private void todoButton_Click(object sender, EventArgs e)
         {
+            if(todoTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a task");
+                return;
+            }
             todoBox.Items.Add(new Todo(todoTextBox.Text));
             todoTextBox.Text = "";
         }
@@ -218,6 +224,11 @@ namespace ProductivityManager
         /// <param name="e"></param>
         private void habitsAddButton_Click(object sender, EventArgs e)
         {
+            if(habitsTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a habit name");
+                return;
+            }
             Habit h = new Habit(habitsTextBox.Text);
             habitsBox.Items.Add(h);
             habitsComboBox.Items.Add(h);
@@ -284,6 +295,11 @@ namespace ProductivityManager
         /// <param name="e"></param>
         private void reminderAddButton_Click(object sender, EventArgs e)
         {
+            if(reminderTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter a reminder message");
+                return;
+            }
             DateTime reminderDate = new DateTime(reminderDatePicker.Value.Year, 
                 reminderDatePicker.Value.Month, reminderDatePicker.Value.Day, 
                 reminderTimePicker.Value.Hour, reminderTimePicker.Value.Minute,
@@ -439,6 +455,11 @@ namespace ProductivityManager
         /// <param name="e"></param>
         private void eventAddButton_Click(object sender, EventArgs e)
         {
+            if(eventTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter an event description");
+                return;
+            }
             Recur recurrence; 
             switch(recurComboBox.Text)
             {
@@ -461,17 +482,112 @@ namespace ProductivityManager
             Event newEvent = new Event(eventTextBox.Text, eventMonthCalendar.SelectionStart, recurrence);
             eventListComboBox.Items.Add(newEvent);
             eventTextBox.Text = "";
-            //Todo: Handle recurring events 
             //Todo: Add to schedule storage
-            //Todo: Update all the text boxes 
+            updateEventLists();
         }
 
         /// <summary>
-        /// Updates text boxes showing daily, weekly, monthly events relative to selected date
+        /// Updates list boxes showing daily, weekly, monthly events relative to selected date
         /// </summary>
-        private void updateEventText()
+        private void updateEventLists()
         {
+            dayListBox.Items.Clear();
+            weekListBox.Items.Clear();
+            monthListBox.Items.Clear();
+            
+            DateTime selected = eventMonthCalendar.SelectionStart;
+            foreach (Event e in eventListComboBox.Items)
+            {
+                //Daily:
+                //Events that recur daily
+                //or other recurring events that share the same day of the same month
+                //or nonrecurring events that share the same exact date
 
+                //Weekly:
+                //Events that recur daily and weekly 
+                //or other recurring events that share the same week
+                //going off the date it would fall on in that particular year and month
+                //or nonrecurring events that share the same week 
+
+                //Monthly:
+                //Events that recur daily and weekly and monthly
+                //or other recurring events that share the same month
+                //or nonrecurring events that share the same month
+                if (e.recurrence == Recur.Daily)
+                {
+                    dayListBox.Items.Add(e);
+                    weekListBox.Items.Add(e);
+                    monthListBox.Items.Add(e);
+                }
+                else if (e.recurrence == Recur.Weekly)
+                {
+                    weekListBox.Items.Add(e);
+                    monthListBox.Items.Add(e);
+                    //add to daily if they share the same month
+                    if(e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
+                    {
+                        dayListBox.Items.Add(e);
+                    }
+                }
+                else if (e.recurrence == Recur.Monthly)
+                {
+                    monthListBox.Items.Add(e);
+                    //add to daily if they share the same month and day
+                    if(e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
+                    {
+                        dayListBox.Items.Add(e);
+                    }
+                    //add to weekly if they fall on the same week
+                    //this is a great solution found on stack overflow modified to use a datetime relative to the selected date
+                    System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
+                    DateTime relativeDateWeek = new DateTime(selected.Year, selected.Month, e.eventDate.Day);
+                    if (relativeDateWeek.Date.AddDays(-1 * (int)cal.GetDayOfWeek(relativeDateWeek)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
+                    {
+                        weekListBox.Items.Add(e);
+                    }
+                } 
+                else if (e.recurrence == Recur.Annually)
+                {
+                    //add to daily if they share the same month and day
+                    if (e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
+                    {
+                        dayListBox.Items.Add(e);
+                    }
+                    //add to weekly if they fall on the same week
+                    //this is a great solution found on stack overflow 
+                    System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
+                    DateTime relativeDateWeek = new DateTime(selected.Year, e.eventDate.Month, e.eventDate.Day);
+                    if (relativeDateWeek.Date.AddDays(-1 * (int)cal.GetDayOfWeek(relativeDateWeek)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
+                    {
+                        weekListBox.Items.Add(e);
+                    }
+                    //add to monthly if they share the same month
+                    if (e.eventDate.Month == selected.Month)
+                    {
+                        monthListBox.Items.Add(e);
+                    }
+                }
+                //if the event is not repeated, we just need to know 
+                else
+                {
+                    //add to daily if they share the exact same date
+                    if (e.eventDate.CompareTo(selected) == 0)
+                    {
+                        dayListBox.Items.Add(e);
+                    }
+                    //add to weekly if they share the same week
+                    System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
+                    if (e.eventDate.Date.AddDays(-1 * (int)cal.GetDayOfWeek(e.eventDate)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
+                    {
+                        weekListBox.Items.Add(e);
+                    }
+                    //add to monthly if they share the same month
+                    if (e.eventDate.Year == selected.Year && e.eventDate.Month == selected.Month)
+                    {
+                        monthListBox.Items.Add(e);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -482,9 +598,9 @@ namespace ProductivityManager
         private void eventRemoveButton_Click(object sender, EventArgs e)
         {
            // Todo: remove from schedule storage
-           // Todo: Update all the text boxes 
             eventListComboBox.Items.Remove(eventListComboBox.SelectedItem);
             eventListComboBox.Text = "";
+            updateEventLists();
         }
 
         /// <summary>
@@ -492,10 +608,11 @@ namespace ProductivityManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void eventMonthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        private void eventDateSelected(object sender, DateRangeEventArgs e)
         {
-            //Todo: Update all the text boxes 
+            updateEventLists();
         }
+        
        
     }
 }
