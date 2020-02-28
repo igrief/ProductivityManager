@@ -513,14 +513,29 @@ namespace ProductivityManager
                 //Events that recur daily and weekly and monthly
                 //or other recurring events that share the same month
                 //or nonrecurring events that share the same month
+
+                //store this datetime so we can restore it 
+                //the listed dates will be modified to be relative to the selected date
+                DateTime lastDate = e.eventDate;
                 if (e.recurrence == Recur.Daily)
                 {
+                    e.eventDate = selected;
                     dayListBox.Items.Add(e);
                     weekListBox.Items.Add(e);
                     monthListBox.Items.Add(e);
                 }
                 else if (e.recurrence == Recur.Weekly)
                 {
+
+                    //Need to match month and year, 
+                    //and then figure out what day the same day of the week falls on 
+                    //relative to the selected 
+                    System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
+                    int dayOfWeek = (int)cal.GetDayOfWeek(e.eventDate);
+                    e.eventDate = new DateTime(selected.Year, selected.Month, selected.Day);
+                    e.eventDate = e.eventDate.Date.AddDays(-1 * (int)cal.GetDayOfWeek(selected) + dayOfWeek);
+
+
                     weekListBox.Items.Add(e);
                     monthListBox.Items.Add(e);
                     //add to daily if they share the same month
@@ -531,23 +546,26 @@ namespace ProductivityManager
                 }
                 else if (e.recurrence == Recur.Monthly)
                 {
+                    e.eventDate = new DateTime(selected.Year, selected.Month, e.eventDate.Day);
+
                     monthListBox.Items.Add(e);
                     //add to daily if they share the same month and day
-                    if(e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
+                    if(e.eventDate.Day == selected.Day)
                     {
                         dayListBox.Items.Add(e);
                     }
                     //add to weekly if they fall on the same week
                     //this is a great solution found on stack overflow modified to use a datetime relative to the selected date
                     System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
-                    DateTime relativeDateWeek = new DateTime(selected.Year, selected.Month, e.eventDate.Day);
-                    if (relativeDateWeek.Date.AddDays(-1 * (int)cal.GetDayOfWeek(relativeDateWeek)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
+                    if (e.eventDate.Date.AddDays(-1 * (int)cal.GetDayOfWeek(e.eventDate)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
                     {
                         weekListBox.Items.Add(e);
                     }
                 } 
                 else if (e.recurrence == Recur.Annually)
                 {
+                    e.eventDate = new DateTime(selected.Year, e.eventDate.Month, e.eventDate.Day);
+
                     //add to daily if they share the same month and day
                     if (e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
                     {
@@ -556,8 +574,7 @@ namespace ProductivityManager
                     //add to weekly if they fall on the same week
                     //this is a great solution found on stack overflow 
                     System.Globalization.Calendar cal = System.Globalization.DateTimeFormatInfo.CurrentInfo.Calendar;
-                    DateTime relativeDateWeek = new DateTime(selected.Year, e.eventDate.Month, e.eventDate.Day);
-                    if (relativeDateWeek.Date.AddDays(-1 * (int)cal.GetDayOfWeek(relativeDateWeek)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
+                    if (e.eventDate.Date.AddDays(-1 * (int)cal.GetDayOfWeek(e.eventDate)).Day == selected.AddDays(-1 * (int)cal.GetDayOfWeek(selected)).Day)
                     {
                         weekListBox.Items.Add(e);
                     }
@@ -587,6 +604,7 @@ namespace ProductivityManager
                         monthListBox.Items.Add(e);
                     }
                 }
+                e.eventDate = lastDate;
             }
         }
 
