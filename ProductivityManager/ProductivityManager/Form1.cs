@@ -479,6 +479,14 @@ namespace ProductivityManager
                     recurrence = Recur.None;
                     break;
             }
+            if(DateTime.IsLeapYear(eventMonthCalendar.SelectionStart.Year) &&
+                (recurrence == Recur.Monthly || recurrence == Recur.Annually) && 
+                (eventMonthCalendar.SelectionStart.DayOfYear == 60)) //feb 29 is 60th day of year
+            {
+                MessageBox.Show("Cannot create a monthly or annually recurring event on this date.");
+                return;
+            }
+
             Event newEvent = new Event(eventTextBox.Text, eventMonthCalendar.SelectionStart, recurrence);
             eventListComboBox.Items.Add(newEvent);
             eventTextBox.Text = "";
