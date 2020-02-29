@@ -610,13 +610,13 @@ namespace ProductivityManager
                     recurrence = Recur.None;
                     break;
             }
-            if(DateTime.IsLeapYear(eventMonthCalendar.SelectionStart.Year) &&
+            /*if(DateTime.IsLeapYear(eventMonthCalendar.SelectionStart.Year) &&
                 (recurrence == Recur.Monthly || recurrence == Recur.Annually) && 
                 (eventMonthCalendar.SelectionStart.DayOfYear == 60)) //feb 29 is 60th day of year
             {
                 MessageBox.Show("Cannot create a monthly or annually recurring event on this date.");
                 return;
-            }
+            }*/
 
             Event newEvent = new Event(eventTextBox.Text, eventMonthCalendar.SelectionStart, recurrence);
             eventListComboBox.Items.Add(newEvent);
@@ -666,6 +666,7 @@ namespace ProductivityManager
                 else if (e.recurrence == Recur.Weekly)
                 {
 
+
                     //Need to match month and year, 
                     //and then figure out what day the same day of the week falls on 
                     //relative to the selected 
@@ -685,7 +686,15 @@ namespace ProductivityManager
                 }
                 else if (e.recurrence == Recur.Monthly)
                 {
+                    //if there are fewer days in the selected month, the event cannot recur
+                    //this should also allow us to create leap year recurrences
+                    if (DateTime.DaysInMonth(selected.Year, selected.Month) < e.eventDate.Day)
+                    {
+                        continue;
+                    }
                     e.eventDate = new DateTime(selected.Year, selected.Month, e.eventDate.Day);
+
+
 
                     monthListBox.Items.Add(e);
                     //add to daily if they share the same month and day
@@ -703,7 +712,12 @@ namespace ProductivityManager
                 } 
                 else if (e.recurrence == Recur.Annually)
                 {
+                    if (DateTime.DaysInMonth(selected.Year, e.eventDate.Month) < e.eventDate.Day)
+                    {
+                        continue;
+                    }
                     e.eventDate = new DateTime(selected.Year, e.eventDate.Month, e.eventDate.Day);
+
 
                     //add to daily if they share the same month and day
                     if (e.eventDate.Month == selected.Month && e.eventDate.Day == selected.Day)
