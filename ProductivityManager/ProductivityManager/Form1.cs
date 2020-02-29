@@ -5,6 +5,10 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 
 namespace ProductivityManager
 {
@@ -31,6 +35,129 @@ namespace ProductivityManager
             reminderNotifyIcon.Visible = true;
             reminderNotifyIcon.Icon = SystemIcons.Application; //can replace with an appropriate .ico file
             reminderNotifyIcon.BalloonTipIcon = ToolTipIcon.None;
+            LoadLastSession();
+            
+            //set reminder timer
+            Reminder r = findEarliestReminder();
+            if (r != null) //r is not null
+            {
+                updateReminderTimer(r);
+            }
+
+            //check all habits that should be checked
+            for(int i = 0; i < habitsBox.Items.Count; i++)
+            {
+                if (((Habit)habitsBox.Items[i]).doneToday)
+                {
+                    //if its the same day, check it, else it wasn't done today
+                    if (((Habit)habitsBox.Items[i]).lastDone.Date == DateTime.Now.Date)
+                    {
+                        habitsBox.SetItemChecked(i, true);
+                    }
+                    else
+                    {
+                        ((Habit)habitsBox.Items[i]).doneToday = false;
+                    }
+                }
+            }
+
+            //update event lists
+            updateEventLists();
+        }
+
+        private void Save()
+        {
+            FileStream habitFS = new FileStream("habits.dat", FileMode.Create);
+            FileStream todoFS = new FileStream("todos.dat", FileMode.Create);
+            FileStream reminderFS = new FileStream("reminders.dat", FileMode.Create);
+            FileStream eventFS = new FileStream("events.dat", FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            Habit[] habits = new Habit[habitsBox.Items.Count];
+            habitsBox.Items.CopyTo(habits, 0);
+            Todo[] todos = new Todo[todoBox.Items.Count];
+            todoBox.Items.CopyTo(todos, 0);
+            Reminder[] reminders = new Reminder[reminderCheckList.Items.Count];
+            reminderCheckList.Items.CopyTo(reminders, 0);
+            Event[] events = new Event[eventListComboBox.Items.Count];
+            eventListComboBox.Items.CopyTo(events, 0);
+
+            try
+            {
+                formatter.Serialize(habitFS, habits);
+                formatter.Serialize(todoFS, todos);
+                formatter.Serialize(reminderFS, reminders);
+                formatter.Serialize(eventFS, events);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Failed to serialize: Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                habitFS.Close();
+                todoFS.Close();
+                reminderFS.Close();
+                eventFS.Close();
+            }
+        }
+        private void LoadLastSession()
+        {
+            Habit[] habits = null;
+            Todo[] todos = null;
+            Reminder[] reminders = null;
+            Event[] events = null;
+
+
+            FileStream habitFS;
+            FileStream todoFS;
+            FileStream reminderFS;
+            FileStream eventFS;
+            if (File.Exists("habits.dat") && 
+                File.Exists("todos.dat") &&
+                File.Exists("reminders.dat") &&
+                File.Exists("events.dat"))
+            {
+                habitFS = new FileStream("habits.dat", FileMode.Open);
+                todoFS = new FileStream("todos.dat", FileMode.Open);
+                reminderFS = new FileStream("reminders.dat", FileMode.Open);
+                eventFS = new FileStream("events.dat", FileMode.Open);
+            }
+            else
+            {
+                return; //No previous session found
+            }
+           
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                habits = (Habit[])formatter.Deserialize(habitFS);
+                todos = (Todo[])formatter.Deserialize(todoFS);
+                reminders = (Reminder[])formatter.Deserialize(reminderFS);
+                events = (Event[])formatter.Deserialize(eventFS);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                return;
+            }
+            finally
+            {
+                habitFS.Close();
+                todoFS.Close();
+                reminderFS.Close();
+                eventFS.Close();
+            }
+
+            //add all the objects to their respective lists
+            habitsBox.Items.AddRange(habits);
+            habitsComboBox.Items.AddRange(habits);
+            todoBox.Items.AddRange(todos);
+            reminderCheckList.Items.AddRange(reminders);
+            eventListComboBox.Items.AddRange(events);
+
         }
 
         /// <summary>
@@ -250,6 +377,7 @@ namespace ProductivityManager
             if (!((Habit)habitsBox.SelectedItem).doneToday)
             {
                 ((Habit)habitsBox.SelectedItem).doneToday = true;
+                ((Habit)habitsBox.SelectedItem).lastDone = DateTime.Now.Date;
             }
         }
 
@@ -638,7 +766,18 @@ namespace ProductivityManager
         {
             updateEventLists();
         }
-        
-       
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Save();
+                MessageBox.Show("Settings Saved!\nApplication will load saved settings upon next startup.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurred while saving. Error: " + ex.ToString());
+            }
+        }
     }
 }

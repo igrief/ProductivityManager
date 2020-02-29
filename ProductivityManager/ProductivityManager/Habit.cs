@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProductivityManager
 {
+    [Serializable]
     class Habit
     {
         private String name = "";
-        private int consecutiveDays = 0;
+        public DateTime lastDone { get; set; } = DateTime.MinValue;
 
         public bool doneToday { get; set; } = false;
 

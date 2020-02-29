@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductivityManager
 {
+    [Serializable]
     class Todo
     {
         private String name = "";

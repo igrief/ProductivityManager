@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductivityManager
 {
+    [Serializable]
     class Reminder
     {
         public String message { get; set; }

@@ -14,10 +14,8 @@ namespace ProductivityManager
         Monthly,
         Annually
     }
-    class Schedule
-    {
-    }
 
+    [Serializable]
     class Event
     {
         public string description { get; set; }

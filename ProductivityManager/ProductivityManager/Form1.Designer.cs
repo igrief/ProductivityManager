@@ -104,6 +104,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.todoButton = new System.Windows.Forms.Button();
             this.tabs = new System.Windows.Forms.TabControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -133,6 +135,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabs.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timerTimer
@@ -426,7 +429,7 @@
             this.schedulePage.Location = new System.Drawing.Point(4, 30);
             this.schedulePage.Name = "schedulePage";
             this.schedulePage.Padding = new System.Windows.Forms.Padding(3);
-            this.schedulePage.Size = new System.Drawing.Size(974, 488);
+            this.schedulePage.Size = new System.Drawing.Size(974, 458);
             this.schedulePage.TabIndex = 4;
             this.schedulePage.Text = "Schedule";
             this.schedulePage.UseVisualStyleBackColor = true;
@@ -449,7 +452,7 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(968, 482);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(968, 452);
             this.tableLayoutPanel12.TabIndex = 0;
             // 
             // tableLayoutPanel16
@@ -460,12 +463,12 @@
             this.tableLayoutPanel16.Controls.Add(this.monthListBox, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(612, 323);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(612, 303);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 2;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.76871F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.23129F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(353, 156);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(353, 146);
             this.tableLayoutPanel16.TabIndex = 2;
             // 
             // monthListBox
@@ -474,9 +477,9 @@
             this.monthListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.monthListBox.FormattingEnabled = true;
             this.monthListBox.ItemHeight = 21;
-            this.monthListBox.Location = new System.Drawing.Point(3, 36);
+            this.monthListBox.Location = new System.Drawing.Point(3, 34);
             this.monthListBox.Name = "monthListBox";
-            this.monthListBox.Size = new System.Drawing.Size(347, 117);
+            this.monthListBox.Size = new System.Drawing.Size(347, 109);
             this.monthListBox.TabIndex = 2;
             // 
             // label6
@@ -486,7 +489,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(347, 33);
+            this.label6.Size = new System.Drawing.Size(347, 31);
             this.label6.TabIndex = 0;
             this.label6.Text = "Events This Month";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -499,12 +502,12 @@
             this.tableLayoutPanel15.Controls.Add(this.weekListBox, 0, 1);
             this.tableLayoutPanel15.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(612, 163);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(612, 153);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 2;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.76871F));
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.23129F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(353, 154);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(353, 144);
             this.tableLayoutPanel15.TabIndex = 2;
             // 
             // weekListBox
@@ -513,9 +516,9 @@
             this.weekListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.weekListBox.FormattingEnabled = true;
             this.weekListBox.ItemHeight = 21;
-            this.weekListBox.Location = new System.Drawing.Point(3, 36);
+            this.weekListBox.Location = new System.Drawing.Point(3, 34);
             this.weekListBox.Name = "weekListBox";
-            this.weekListBox.Size = new System.Drawing.Size(347, 115);
+            this.weekListBox.Size = new System.Drawing.Size(347, 107);
             this.weekListBox.TabIndex = 2;
             // 
             // label5
@@ -525,7 +528,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(347, 33);
+            this.label5.Size = new System.Drawing.Size(347, 31);
             this.label5.TabIndex = 0;
             this.label5.Text = "Events This Week";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -543,7 +546,7 @@
             this.tableLayoutPanel14.RowCount = 2;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.76871F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.23129F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(353, 154);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(353, 144);
             this.tableLayoutPanel14.TabIndex = 1;
             // 
             // label4
@@ -553,7 +556,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(347, 33);
+            this.label4.Size = new System.Drawing.Size(347, 31);
             this.label4.TabIndex = 0;
             this.label4.Text = "Events Today";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -564,9 +567,9 @@
             this.dayListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dayListBox.FormattingEnabled = true;
             this.dayListBox.ItemHeight = 21;
-            this.dayListBox.Location = new System.Drawing.Point(3, 36);
+            this.dayListBox.Location = new System.Drawing.Point(3, 34);
             this.dayListBox.Name = "dayListBox";
-            this.dayListBox.Size = new System.Drawing.Size(347, 115);
+            this.dayListBox.Size = new System.Drawing.Size(347, 107);
             this.dayListBox.TabIndex = 1;
             // 
             // eventMonthCalendar
@@ -584,19 +587,19 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(this.eventTextBox, 0, 1);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 163);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 153);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 2;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(603, 154);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(603, 144);
             this.tableLayoutPanel13.TabIndex = 4;
             // 
             // eventTextBox
             // 
             this.tableLayoutPanel13.SetColumnSpan(this.eventTextBox, 2);
             this.eventTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventTextBox.Location = new System.Drawing.Point(3, 80);
+            this.eventTextBox.Location = new System.Drawing.Point(3, 75);
             this.eventTextBox.Name = "eventTextBox";
             this.eventTextBox.Size = new System.Drawing.Size(597, 28);
             this.eventTextBox.TabIndex = 0;
@@ -611,12 +614,12 @@
             this.tableLayoutPanel17.Controls.Add(this.eventRemoveButton, 1, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel18, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 323);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(3, 303);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.66265F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.33735F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(603, 156);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(603, 146);
             this.tableLayoutPanel17.TabIndex = 5;
             // 
             // tableLayoutPanel19
@@ -632,7 +635,7 @@
             this.tableLayoutPanel19.RowCount = 2;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.95146F));
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.04855F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(295, 96);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(295, 89);
             this.tableLayoutPanel19.TabIndex = 3;
             // 
             // textBox2
@@ -655,7 +658,7 @@
             "Monthly",
             "Weekly",
             "Daily"});
-            this.recurComboBox.Location = new System.Drawing.Point(3, 36);
+            this.recurComboBox.Location = new System.Drawing.Point(3, 34);
             this.recurComboBox.Name = "recurComboBox";
             this.recurComboBox.Size = new System.Drawing.Size(289, 29);
             this.recurComboBox.TabIndex = 1;
@@ -663,9 +666,9 @@
             // eventAddButton
             // 
             this.eventAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventAddButton.Location = new System.Drawing.Point(3, 105);
+            this.eventAddButton.Location = new System.Drawing.Point(3, 98);
             this.eventAddButton.Name = "eventAddButton";
-            this.eventAddButton.Size = new System.Drawing.Size(295, 48);
+            this.eventAddButton.Size = new System.Drawing.Size(295, 45);
             this.eventAddButton.TabIndex = 0;
             this.eventAddButton.Text = "Add Event";
             this.eventAddButton.UseVisualStyleBackColor = true;
@@ -674,9 +677,9 @@
             // eventRemoveButton
             // 
             this.eventRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.eventRemoveButton.Location = new System.Drawing.Point(304, 105);
+            this.eventRemoveButton.Location = new System.Drawing.Point(304, 98);
             this.eventRemoveButton.Name = "eventRemoveButton";
-            this.eventRemoveButton.Size = new System.Drawing.Size(296, 48);
+            this.eventRemoveButton.Size = new System.Drawing.Size(296, 45);
             this.eventRemoveButton.TabIndex = 1;
             this.eventRemoveButton.Text = "Remove Event";
             this.eventRemoveButton.UseVisualStyleBackColor = true;
@@ -694,7 +697,7 @@
             this.tableLayoutPanel18.RowCount = 2;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.95146F));
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.04855F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(296, 96);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(296, 89);
             this.tableLayoutPanel18.TabIndex = 2;
             // 
             // eventListComboBox
@@ -702,7 +705,7 @@
             this.tableLayoutPanel18.SetColumnSpan(this.eventListComboBox, 2);
             this.eventListComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventListComboBox.FormattingEnabled = true;
-            this.eventListComboBox.Location = new System.Drawing.Point(3, 36);
+            this.eventListComboBox.Location = new System.Drawing.Point(3, 34);
             this.eventListComboBox.Name = "eventListComboBox";
             this.eventListComboBox.Size = new System.Drawing.Size(290, 29);
             this.eventListComboBox.TabIndex = 2;
@@ -713,7 +716,7 @@
             this.remindersPage.Location = new System.Drawing.Point(4, 30);
             this.remindersPage.Name = "remindersPage";
             this.remindersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.remindersPage.Size = new System.Drawing.Size(974, 488);
+            this.remindersPage.Size = new System.Drawing.Size(974, 458);
             this.remindersPage.TabIndex = 2;
             this.remindersPage.Text = "Reminders";
             this.remindersPage.UseVisualStyleBackColor = true;
@@ -733,7 +736,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.92157F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.07843F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(968, 482);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(968, 452);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // tableLayoutPanel9
@@ -750,14 +753,14 @@
             this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(478, 157);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(478, 147);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // reminderTextBox
             // 
             this.tableLayoutPanel9.SetColumnSpan(this.reminderTextBox, 2);
             this.reminderTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.reminderTextBox.Location = new System.Drawing.Point(3, 47);
+            this.reminderTextBox.Location = new System.Drawing.Point(3, 42);
             this.reminderTextBox.Name = "reminderTextBox";
             this.reminderTextBox.Size = new System.Drawing.Size(472, 28);
             this.reminderTextBox.TabIndex = 0;
@@ -765,9 +768,9 @@
             // reminderAddButton
             // 
             this.reminderAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderAddButton.Location = new System.Drawing.Point(335, 81);
+            this.reminderAddButton.Location = new System.Drawing.Point(335, 76);
             this.reminderAddButton.Name = "reminderAddButton";
-            this.reminderAddButton.Size = new System.Drawing.Size(140, 73);
+            this.reminderAddButton.Size = new System.Drawing.Size(140, 68);
             this.reminderAddButton.TabIndex = 2;
             this.reminderAddButton.Text = "Add Reminder";
             this.reminderAddButton.UseVisualStyleBackColor = true;
@@ -781,12 +784,12 @@
             this.tableLayoutPanel11.Controls.Add(this.reminderDatePicker, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.reminderTimePicker, 0, 1);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 81);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 76);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 2;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(326, 73);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(326, 68);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // reminderDatePicker
@@ -803,7 +806,7 @@
             this.tableLayoutPanel11.SetColumnSpan(this.reminderTimePicker, 2);
             this.reminderTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reminderTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.reminderTimePicker.Location = new System.Drawing.Point(3, 39);
+            this.reminderTimePicker.Location = new System.Drawing.Point(3, 37);
             this.reminderTimePicker.Name = "reminderTimePicker";
             this.reminderTimePicker.ShowUpDown = true;
             this.reminderTimePicker.Size = new System.Drawing.Size(320, 28);
@@ -816,20 +819,20 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.reminderRemoveButton, 1, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(487, 166);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(487, 156);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.77465F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.22535F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(478, 313);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(478, 293);
             this.tableLayoutPanel10.TabIndex = 1;
             // 
             // reminderRemoveButton
             // 
             this.reminderRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reminderRemoveButton.Location = new System.Drawing.Point(242, 240);
+            this.reminderRemoveButton.Location = new System.Drawing.Point(242, 225);
             this.reminderRemoveButton.Name = "reminderRemoveButton";
-            this.reminderRemoveButton.Size = new System.Drawing.Size(233, 70);
+            this.reminderRemoveButton.Size = new System.Drawing.Size(233, 65);
             this.reminderRemoveButton.TabIndex = 0;
             this.reminderRemoveButton.Text = "Remove Reminders";
             this.reminderRemoveButton.UseVisualStyleBackColor = true;
@@ -842,7 +845,7 @@
             this.reminderCheckList.Location = new System.Drawing.Point(3, 3);
             this.reminderCheckList.Name = "reminderCheckList";
             this.tableLayoutPanel8.SetRowSpan(this.reminderCheckList, 2);
-            this.reminderCheckList.Size = new System.Drawing.Size(478, 476);
+            this.reminderCheckList.Size = new System.Drawing.Size(478, 446);
             this.reminderCheckList.TabIndex = 2;
             // 
             // habitsPage
@@ -851,7 +854,7 @@
             this.habitsPage.Location = new System.Drawing.Point(4, 30);
             this.habitsPage.Name = "habitsPage";
             this.habitsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.habitsPage.Size = new System.Drawing.Size(974, 488);
+            this.habitsPage.Size = new System.Drawing.Size(974, 460);
             this.habitsPage.TabIndex = 1;
             this.habitsPage.Text = "Habits";
             this.habitsPage.UseVisualStyleBackColor = true;
@@ -874,7 +877,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(968, 482);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(968, 454);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // habitsBox
@@ -886,7 +889,7 @@
             this.habitsBox.Location = new System.Drawing.Point(3, 3);
             this.habitsBox.Name = "habitsBox";
             this.tableLayoutPanel5.SetRowSpan(this.habitsBox, 4);
-            this.habitsBox.Size = new System.Drawing.Size(478, 476);
+            this.habitsBox.Size = new System.Drawing.Size(478, 448);
             this.habitsBox.TabIndex = 0;
             this.habitsBox.SelectedIndexChanged += new System.EventHandler(this.habitsBox_SelectedIndexChanged);
             // 
@@ -905,12 +908,12 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Controls.Add(this.habitsAddButton, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(487, 83);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(487, 78);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(478, 154);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(478, 145);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // habitsAddButton
@@ -918,7 +921,7 @@
             this.habitsAddButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.habitsAddButton.Location = new System.Drawing.Point(3, 3);
             this.habitsAddButton.Name = "habitsAddButton";
-            this.habitsAddButton.Size = new System.Drawing.Size(233, 71);
+            this.habitsAddButton.Size = new System.Drawing.Size(233, 66);
             this.habitsAddButton.TabIndex = 0;
             this.habitsAddButton.Text = "Add Habit";
             this.habitsAddButton.UseVisualStyleBackColor = true;
@@ -931,12 +934,12 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(this.habitsRemoveButton, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(487, 323);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(487, 304);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(478, 156);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(478, 147);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // habitsRemoveButton
@@ -944,7 +947,7 @@
             this.habitsRemoveButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.habitsRemoveButton.Location = new System.Drawing.Point(3, 3);
             this.habitsRemoveButton.Name = "habitsRemoveButton";
-            this.habitsRemoveButton.Size = new System.Drawing.Size(233, 72);
+            this.habitsRemoveButton.Size = new System.Drawing.Size(233, 67);
             this.habitsRemoveButton.TabIndex = 0;
             this.habitsRemoveButton.Text = "Remove Habit";
             this.habitsRemoveButton.UseVisualStyleBackColor = true;
@@ -954,7 +957,7 @@
             // 
             this.habitsComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.habitsComboBox.FormattingEnabled = true;
-            this.habitsComboBox.Location = new System.Drawing.Point(487, 243);
+            this.habitsComboBox.Location = new System.Drawing.Point(487, 229);
             this.habitsComboBox.Name = "habitsComboBox";
             this.habitsComboBox.Size = new System.Drawing.Size(478, 29);
             this.habitsComboBox.TabIndex = 4;
@@ -965,7 +968,7 @@
             this.todoPage.Location = new System.Drawing.Point(4, 30);
             this.todoPage.Name = "todoPage";
             this.todoPage.Padding = new System.Windows.Forms.Padding(3);
-            this.todoPage.Size = new System.Drawing.Size(974, 488);
+            this.todoPage.Size = new System.Drawing.Size(974, 460);
             this.todoPage.TabIndex = 0;
             this.todoPage.Text = "To Do";
             this.todoPage.UseVisualStyleBackColor = true;
@@ -984,7 +987,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.803922F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.19608F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(968, 482);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(968, 454);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // todoBox
@@ -997,7 +1000,7 @@
             this.todoBox.Margin = new System.Windows.Forms.Padding(5);
             this.todoBox.Name = "todoBox";
             this.tableLayoutPanel3.SetRowSpan(this.todoBox, 2);
-            this.todoBox.Size = new System.Drawing.Size(531, 472);
+            this.todoBox.Size = new System.Drawing.Size(531, 444);
             this.todoBox.TabIndex = 0;
             this.todoBox.ThreeDCheckBoxes = true;
             this.todoBox.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
@@ -1016,7 +1019,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.todoButton, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(544, 50);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(544, 47);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1044,11 +1047,30 @@
             this.tabs.Controls.Add(this.timerPage);
             this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabs.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabs.Location = new System.Drawing.Point(0, 0);
+            this.tabs.Location = new System.Drawing.Point(0, 30);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(982, 522);
+            this.tabs.Size = new System.Drawing.Size(982, 492);
             this.tabs.TabIndex = 1;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(982, 30);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // Manager
             // 
@@ -1056,7 +1078,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 522);
             this.Controls.Add(this.tabs);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(900, 428);
             this.Name = "Manager";
             this.Text = "Productivity Manager";
@@ -1100,7 +1124,10 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1180,6 +1207,8 @@
         private System.Windows.Forms.Button eventRemoveButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.ComboBox eventListComboBox;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

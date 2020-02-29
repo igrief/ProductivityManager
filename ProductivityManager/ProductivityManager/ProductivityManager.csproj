@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Schedule.cs" />
+    <Compile Include="Event.cs" />
     <Compile Include="Todo.cs" />
     <Compile Include="Habit.cs" />
     <Compile Include="Reminder.cs" />
