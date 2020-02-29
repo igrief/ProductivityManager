@@ -35,6 +35,7 @@ namespace ProductivityManager
             reminderNotifyIcon.Visible = true;
             reminderNotifyIcon.Icon = SystemIcons.Application; //can replace with an appropriate .ico file
             reminderNotifyIcon.BalloonTipIcon = ToolTipIcon.None;
+            reminderNotifyIcon.BalloonTipTitle = "Productivity Manager";
             LoadLastSession();
             
             //set reminder timer
@@ -198,7 +199,10 @@ namespace ProductivityManager
             if (!timerT.TimerTick())
             {
                 timerTimer.Stop();
-                //todo: generate a notification 
+                string storeText = reminderNotifyIcon.BalloonTipText;
+                reminderNotifyIcon.BalloonTipText = "Timer Done";
+                reminderNotifyIcon.ShowBalloonTip(30000);
+                reminderNotifyIcon.BalloonTipText = storeText;
             }
             timerValue.Text = timerT.ReadTime();
         }
@@ -535,8 +539,7 @@ namespace ProductivityManager
         /// <param name="r"></param>
         private void updateReminderTimer(Reminder r)
         {
-            reminderNotifyIcon.BalloonTipTitle = "Reminder!";
-            reminderNotifyIcon.BalloonTipText = r.message;
+            reminderNotifyIcon.BalloonTipText = "Reminder: " + r.message;
             Int32 tempInterval = getTimerTicksUntilDate(r.remindDate);
             //0 is an invalid interval, so just show the reminder immediately
             if (tempInterval <= 0)

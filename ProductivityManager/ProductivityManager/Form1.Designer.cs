@@ -157,7 +157,7 @@
             this.reminderNotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.reminderNotifyIcon.BalloonTipText = "TestBalloonTipText";
             this.reminderNotifyIcon.BalloonTipTitle = "TestBalloonTipTitle";
-            this.reminderNotifyIcon.Text = "Hello! This is a test message.";
+            this.reminderNotifyIcon.Text = "Productivity Manager";
             // 
             // remindTimer
             // 
